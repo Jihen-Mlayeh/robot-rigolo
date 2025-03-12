@@ -43,7 +43,7 @@ class ButtonMain extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
             splashColor: Colors.white.withOpacity(0.3),
             child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 14, horizontal: 24),
+              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 28),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,

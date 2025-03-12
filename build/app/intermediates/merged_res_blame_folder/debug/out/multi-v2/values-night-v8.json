@@ -4,7 +4,7 @@
             "outputFile": "com.robotrigolo.calculs.calculs.app-mergeDebugResources-24:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "/home/valentin/Bureau/Cours/S2/conduiteprojet/calculs/android/app/src/main/res/values-night/styles.xml",
+                    "source": "/home/valentin/Bureau/Cours/S2/conduiteprojet/calculGIT/robot-rigolo/android/app/src/main/res/values-night/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",

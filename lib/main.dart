@@ -1,4 +1,5 @@
 import 'package:calculs/ButtonMain.dart';
+import 'package:calculs/ChoiceExPage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,77 +15,116 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
+
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: HomePage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
+class HomePage extends StatefulWidget {
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
+  late Animation<double> _textOpacity;
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
+  bool isSpeaking = false; // État du robot (parle ou non)
+
+  @override
+  void initState() {
+    super.initState();
+
+    // Animation du robot (léger mouvement)
+    _controller = AnimationController(
+      duration: Duration(seconds: 1),
+      vsync: this,
+    )..repeat(reverse: true);
+
+    _animation = Tween<double>(begin: 0, end: 8).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
+    );
+
+
+    // Démarrer l'animation de parole
+    _startSpeakingAnimation();
+  }
+
+  void _startSpeakingAnimation() {
+    Future.delayed(Duration(seconds: 1), () {
+      if (mounted) {
+        setState(() {
+          isSpeaking = true; // Passe à l’image du robot qui parle
+        });
+
+        Future.delayed(Duration(seconds: 2), () {
+          if (mounted) {
+            setState(() {
+              isSpeaking = false; // Retour à l'image normale après 2 sec
+            });
+          }
+        });
+      }
     });
   }
 
   @override
-  Widget build(BuildContext context) {
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: ButtonMain(text: "Commencer", onPressed: (){}),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+      body:
+      Container(
+        decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/images/other/background3.png"),
+              fit: BoxFit.fitHeight,
+          )),
+        child:  Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Bienvenue !",
+                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.blue.shade800),
+                ),
+                SizedBox(height: 20),
+
+                // Animation du robot avec changement d'image
+                AnimatedBuilder(
+                  animation: _animation,
+                  builder: (context, child) {
+                    return Transform.translate(
+                      offset: Offset(0, _animation.value),
+                      child: Image.asset(
+                        isSpeaking ? 'assets/images/QT/QT_speak.png' : 'assets/images/QT/QT_salute.png',
+                        width: 200,
+                      ),
+                    );
+                  },
+                ),
+
+                SizedBox(height: 40),
+
+                // Bouton "Commencer"
+                ButtonMain(text: "Commencer", onPressed: (){})
+              ],
+            ),
+          ],
+        ),
+      )
+
+      );
   }
 }
