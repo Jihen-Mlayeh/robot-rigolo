@@ -1,5 +1,6 @@
 import 'package:calculs/ButtonMain.dart';
 import 'package:calculs/ChoiceExPage.dart';
+import 'package:calculs/GameListPage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,10 +15,28 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
 
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
+        textTheme: const TextTheme(
+          titleLarge: TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+            color: Colors.black87,
+          ),
+          titleMedium: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+            color: Colors.black54,
+          ),
+          bodySmall: TextStyle(
+            fontSize: 12,
+            fontWeight: FontWeight.normal,
+            color: Colors.black45,
+          ),
+        ),
       ),
       home: HomePage(),
     );
@@ -34,8 +53,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   late Animation<double> _animation;
   late Animation<double> _textOpacity;
 
-  bool isSpeaking = false; // État du robot (parle ou non)
-
   @override
   void initState() {
     super.initState();
@@ -50,28 +67,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
     );
 
-
-    // Démarrer l'animation de parole
-    _startSpeakingAnimation();
   }
 
-  void _startSpeakingAnimation() {
-    Future.delayed(Duration(seconds: 1), () {
-      if (mounted) {
-        setState(() {
-          isSpeaking = true; // Passe à l’image du robot qui parle
-        });
-
-        Future.delayed(Duration(seconds: 2), () {
-          if (mounted) {
-            setState(() {
-              isSpeaking = false; // Retour à l'image normale après 2 sec
-            });
-          }
-        });
-      }
-    });
-  }
 
   @override
   void dispose() {
@@ -108,7 +105,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     return Transform.translate(
                       offset: Offset(0, _animation.value),
                       child: Image.asset(
-                        isSpeaking ? 'assets/images/QT/QT_speak.png' : 'assets/images/QT/QT_salute.png',
+                        'assets/images/QT/QT_salute.png',
                         width: 200,
                       ),
                     );
@@ -118,7 +115,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 SizedBox(height: 40),
 
                 // Bouton "Commencer"
-                ButtonMain(text: "Commencer", onPressed: (){})
+                ButtonMain(text: "Commencer", onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => GameListPage()));
+                })
               ],
             ),
           ],
