@@ -1,3 +1,4 @@
+import 'package:calculs/CalculSimplePage.dart';
 import 'package:flutter/material.dart';
 
 class GameListPage extends StatelessWidget {
@@ -140,6 +141,9 @@ class GameContainer extends StatelessWidget {
 
           // --- Cartes ou sections pour chaque statistique ---
           _StatCard(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => CalculSimplePage()));
+            },
             color: cardColor,
             icon: Icons.local_drink,
             title: 'Calculs simples',
@@ -148,6 +152,9 @@ class GameContainer extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           _StatCard(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => CalculSimplePage()));
+            },
             color: cardColor,
             icon: Icons.apple,
             title: 'Retrouve le symbole',
@@ -156,6 +163,9 @@ class GameContainer extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           _StatCard(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => CalculSimplePage()));
+            },
             color: cardColor,
             icon: Icons.directions_walk,
             title: 'Walk',
@@ -164,6 +174,9 @@ class GameContainer extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           _StatCard(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => CalculSimplePage()));
+            },
             color: cardColor,
             icon: Icons.bedtime,
             title: 'Sleep',
@@ -172,6 +185,9 @@ class GameContainer extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           _StatCard(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => CalculSimplePage()));
+            },
             color: cardColor,
             icon: Icons.bedtime,
             title: 'Sleep',
@@ -180,6 +196,9 @@ class GameContainer extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           _StatCard(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => CalculSimplePage()));
+            },
             color: cardColor,
             icon: Icons.bedtime,
             title: 'Sleep',
@@ -198,6 +217,7 @@ class _StatCard extends StatelessWidget {
   final String title;
   final String subtitle;
   final Color iconColor;
+  final VoidCallback onTap;
 
   const _StatCard({
     Key? key,
@@ -206,54 +226,62 @@ class _StatCard extends StatelessWidget {
     required this.title,
     required this.subtitle,
     required this.iconColor,
+    required this.onTap,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Row(
-        children: [
-          // Icône
-          Container(
-            width: 50,
-            height: 75,
-            decoration: BoxDecoration(
-              color: iconColor.withOpacity(0.1),
-              shape: BoxShape.circle,
-            ),
-            child: Icon(
-              icon,
-              color: iconColor,
-              size: 28,
-            ),
-          ),
-          const SizedBox(width: 16),
-          // Titre et sous-titre
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                title,
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
+    return GestureDetector(
+      onTap: (){
+        onTap();
+      },
+      child:  Container(
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Row(
+          children: [
+            // Icône
+            Container(
+              width: 50,
+              height: 75,
+              decoration: BoxDecoration(
+                color: iconColor.withOpacity(0.1),
+                shape: BoxShape.circle,
               ),
-              const SizedBox(height: 4),
-              Text(
-                subtitle,
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                  fontSize: 14,
-                ),
+              child: Icon(
+                icon,
+                color: iconColor,
+                size: 28,
               ),
-            ],
-          ),
-        ],
+            ),
+            const SizedBox(width: 16),
+            // Titre et sous-titre
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  subtitle,
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    fontSize: 14,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
+
+
   }
 }
