@@ -19,6 +19,8 @@ class ButtonMain extends StatelessWidget {
     return GestureDetector(
       onTapDown: (_) => HapticFeedback.lightImpact(), // Effet de vibration léger
       child: AnimatedContainer(
+        width: 250,
+        height: 70,
         duration: Duration(milliseconds: 200),
         curve: Curves.easeInOut,
         decoration: BoxDecoration(

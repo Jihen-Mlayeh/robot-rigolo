@@ -1,72 +1,98 @@
 import 'package:calculs/CalculSimplePage.dart';
+import 'package:calculs/CalculSimpleTimerPage.dart';
 import 'package:flutter/material.dart';
 
-class GameListPage extends StatelessWidget {
+class GameListPage extends StatefulWidget {
   const GameListPage({Key? key}) : super(key: key);
 
   @override
+  _GameListPageState createState() => _GameListPageState();
+}
+
+class _GameListPageState extends State<GameListPage> {
+  bool timerEnabled = false;
+
+  @override
   Widget build(BuildContext context) {
-    // Couleurs principales (exemple)
     final Color backgroundColor = const Color(0xFFFFD06F);
     final Color cardColor = const Color(0xFFFFC232);
-    final Color transparentColor = Colors.transparent;
-    final Color gameContainerColor = Color(0xFF74F1F5);
+    final Color gameContainerColor = const Color(0xFF74F1F5);
 
     return Scaffold(
       backgroundColor: backgroundColor,
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 16),
-            child: Stack(
-              children: [
+        child: Column(
+          children: [
+            // En-tête avec les images et le titre
 
-                Image.asset(
-                  'assets/images/QT/QT_speak.png',
-                  width: 200,
-                  height: 200,
-                  fit: BoxFit.contain,
-                  alignment: Alignment.topRight,
-                ),
+             Stack(
+                children: [
 
-                Column(
-                  children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
 
-                    Container(
-                      decoration: BoxDecoration(
-
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      padding: const EdgeInsets.all(16),
-                      child: Row(
-
-                        mainAxisAlignment: MainAxisAlignment.end,
+                      Stack(
                         children: [
-                          Text(
-                            'Mini-jeux',
-                            style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
+                          Padding(
+                            padding: const EdgeInsetsDirectional.only(start: 20),
+                            child: Image.asset(
+                              'assets/images/QT/QT_head.png',
+                              width: 160,
+                              height: 160,
+                              fit: BoxFit.contain,
+                              alignment: Alignment.topRight,
                             ),
                           ),
-                          const SizedBox(width: 20),
+                          const Positioned(
+                            top: 20,
+                            left: 50,
+                            child: Image(
+                              image: AssetImage('assets/images/QT/emotions/langue.png'),
+                              width: 100,
+                              height: 100,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
                         ],
                       ),
 
-                    ),
-
-                    const SizedBox(height: 60),
 
 
-                    GameContainer(color: gameContainerColor, cardColor: cardColor)
-                    ,
-                  ],
-                )
-              ],
-            )
+                      Padding(
+                        padding: const EdgeInsets.only(right: 20, bottom: 10),
+                        child: Text(
+                          'Mini-jeux',
+                          style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
 
-            ,
-          ),
+
+
+
+
+                ],
+
+            ),
+            // GameContainer occupe le reste de l'espace
+            Expanded(
+              child: GameContainer(
+                color: gameContainerColor,
+                cardColor: cardColor,
+                timerEnabled: timerEnabled,
+                onTimerChanged: (bool value) {
+                  setState(() {
+                    timerEnabled = value;
+                  });
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -74,137 +100,147 @@ class GameListPage extends StatelessWidget {
 }
 
 class GameContainer extends StatelessWidget {
-
   final Color color;
   final Color cardColor;
-
+  final bool timerEnabled;
+  final ValueChanged<bool> onTimerChanged;
 
   const GameContainer({
     Key? key,
-
-
     required this.color,
     required this.cardColor,
+    required this.timerEnabled,
+    required this.onTimerChanged,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: double.infinity,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: color,
-
-        borderRadius: BorderRadius.circular(35),
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(32),
+          topRight: Radius.circular(32),
+        ),
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            padding: const EdgeInsets.symmetric(vertical: 8),
-            decoration: BoxDecoration(
-              color: Colors.transparent,
-              borderRadius: BorderRadius.circular(16),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          // Ligne contenant le libellé et le switch
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              const Text(
+                "Chronomètre",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              Switch.adaptive(
+                value: timerEnabled,
+                onChanged: onTimerChanged,
+                activeColor: Colors.green, // vous pouvez ajuster la couleur pour correspondre à votre design
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          // La liste des cartes s'adapte et défile si nécessaire
+          Expanded(
+            child: ListView(
+              physics: const BouncingScrollPhysics(),
               children: [
-                TextButton(
-                  onPressed: () {},
-                  child: const Text('Year'),
+                _StatCard(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CalculSimpleTimerPage(
+                          timerEnabled: timerEnabled,
+                        ),
+                      ),
+                    );
+                  },
+                  color: cardColor,
+                  icon: Icons.local_drink,
+                  title: 'Calculs simples',
+                  subtitle: '2 + 2 = ?',
+                  iconColor: Colors.blueAccent,
                 ),
-                const VerticalDivider(
-                  width: 1,
-                  thickness: 1,
-                  indent: 8,
-                  endIndent: 8,
-                  color: Colors.grey,
+                const SizedBox(height: 16),
+                _StatCard(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CalculSimpleTimerPage(
+                          timerEnabled: timerEnabled,
+                        ),
+                      ),
+                    );
+                  },
+                  color: cardColor,
+                  icon: Icons.apple,
+                  title: 'Retrouve le symbole',
+                  subtitle: '2 _ 3 = 6',
+                  iconColor: Colors.redAccent,
                 ),
-                TextButton(
-                  onPressed: () {},
-                  child: const Text('Month'),
+                const SizedBox(height: 16),
+                _StatCard(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CalculSimpleTimerPage(
+                          timerEnabled: timerEnabled,
+                        ),
+                      ),
+                    );
+                  },
+                  color: cardColor,
+                  icon: Icons.directions_walk,
+                  title: 'Calculs contre la montre !',
+                  subtitle: '2 + 2 = ?',
+                  iconColor: Colors.green,
                 ),
-                const VerticalDivider(
-                  width: 1,
-                  thickness: 1,
-                  indent: 8,
-                  endIndent: 8,
-                  color: Colors.grey,
+                const SizedBox(height: 16),
+                _StatCard(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CalculSimpleTimerPage(
+                          timerEnabled: timerEnabled,
+                        ),
+                      ),
+                    );
+                  },
+                  color: cardColor,
+                  icon: Icons.bedtime,
+                  title: 'Sleep',
+                  subtitle: '21h/week',
+                  iconColor: Colors.deepPurpleAccent,
                 ),
-                TextButton(
-                  onPressed: () {},
-                  child: const Text('Today'),
+                const SizedBox(height: 16),
+                _StatCard(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CalculSimpleTimerPage(
+                          timerEnabled: timerEnabled,
+                        ),
+                      ),
+                    );
+                  },
+                  color: cardColor,
+                  icon: Icons.bedtime,
+                  title: 'Sleep',
+                  subtitle: '21h/week',
+                  iconColor: Colors.deepPurpleAccent,
                 ),
               ],
             ),
           ),
-
-          const SizedBox(height: 16),
-
-          // --- Cartes ou sections pour chaque statistique ---
-          _StatCard(
-            onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => CalculSimplePage()));
-            },
-            color: cardColor,
-            icon: Icons.local_drink,
-            title: 'Calculs simples',
-            subtitle: '2 + 2 = ?',
-            iconColor: Colors.blueAccent,
-          ),
-          const SizedBox(height: 16),
-          _StatCard(
-            onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => CalculSimplePage()));
-            },
-            color: cardColor,
-            icon: Icons.apple,
-            title: 'Retrouve le symbole',
-            subtitle: '2 _ 3 = 6',
-            iconColor: Colors.redAccent,
-          ),
-          const SizedBox(height: 16),
-          _StatCard(
-            onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => CalculSimplePage()));
-            },
-            color: cardColor,
-            icon: Icons.directions_walk,
-            title: 'Walk',
-            subtitle: '21h/week',
-            iconColor: Colors.green,
-          ),
-          const SizedBox(height: 16),
-          _StatCard(
-            onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => CalculSimplePage()));
-            },
-            color: cardColor,
-            icon: Icons.bedtime,
-            title: 'Sleep',
-            subtitle: '21h/week',
-            iconColor: Colors.deepPurpleAccent,
-          ),
-          const SizedBox(height: 16),
-          _StatCard(
-            onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => CalculSimplePage()));
-            },
-            color: cardColor,
-            icon: Icons.bedtime,
-            title: 'Sleep',
-            subtitle: '21h/week',
-            iconColor: Colors.deepPurpleAccent,
-          ),
-          const SizedBox(height: 16),
-          _StatCard(
-            onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => CalculSimplePage()));
-            },
-            color: cardColor,
-            icon: Icons.bedtime,
-            title: 'Sleep',
-            subtitle: '21h/week',
-            iconColor: Colors.deepPurpleAccent,
-          )
         ],
       ),
     );
@@ -232,10 +268,8 @@ class _StatCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-        onTap();
-      },
-      child:  Container(
+      onTap: onTap,
+      child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: color,
@@ -243,7 +277,6 @@ class _StatCard extends StatelessWidget {
         ),
         child: Row(
           children: [
-            // Icône
             Container(
               width: 50,
               height: 75,
@@ -258,7 +291,6 @@ class _StatCard extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 16),
-            // Titre et sous-titre
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -281,7 +313,5 @@ class _StatCard extends StatelessWidget {
         ),
       ),
     );
-
-
   }
 }

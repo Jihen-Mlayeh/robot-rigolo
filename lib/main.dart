@@ -92,11 +92,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+
                 Text(
                   "Bienvenue !",
-                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.blue.shade800),
+                  style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.blue.shade800),
                 ),
-                SizedBox(height: 20),
+
+
+                SizedBox(height: 0),
 
                 // Animation du robot avec changement d'image
                 AnimatedBuilder(
@@ -105,19 +108,25 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     return Transform.translate(
                       offset: Offset(0, _animation.value),
                       child: Image.asset(
-                        'assets/images/QT/QT_salute.png',
-                        width: 200,
+                        'assets/images/QT/QT_head.png',
+                        width: 150,
                       ),
                     );
                   },
                 ),
 
-                SizedBox(height: 40),
+                SizedBox(height: 5),
 
                 // Bouton "Commencer"
-                ButtonMain(text: "Commencer", onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => GameListPage()));
-                })
+                Row(
+                  children: [
+                    SizedBox(width: 15),
+                    ButtonMain(text: "Commencer", onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => GameListPage()));
+                    })
+                  ],
+                )
+
               ],
             ),
           ],
