@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/services.dart';
+import 'AgeSelectionPage.dart';
 
 class ButtonMain extends StatelessWidget {
   final String text;
@@ -41,7 +42,13 @@ class ButtonMain extends StatelessWidget {
         child: Material(
           color: Colors.transparent,
           child: InkWell(
-            onTap: onPressed,
+            onTap: () {
+              // Action de navigation vers la page de sélection de l'âge
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AgeSelectionPage()),
+              );
+            },
             borderRadius: BorderRadius.circular(20),
             splashColor: Colors.white.withOpacity(0.3),
             child: Padding(

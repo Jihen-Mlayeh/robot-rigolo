@@ -5,57 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fdad68b8-a90b-45f9-a0ee-c7b54dbc3fdb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/images/QT/QT_head.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/QT/QT_robot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/QT/emotions/bisou.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/QT/emotions/bizarre.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/QT/emotions/blush.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/QT/emotions/cute.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/QT/emotions/enerve.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/QT/emotions/etonne.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/QT/emotions/heureux.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/QT/emotions/heureux2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/QT/emotions/heureux3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/QT/emotions/heureux4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/QT/emotions/inquiet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/QT/emotions/inquiet2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/QT/emotions/langue.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/QT/emotions/neutre.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/QT/emotions/presque.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/questions/simple_calcul.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/CalculSimpleTimerPage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/92bf478e960375910299a6ffb41b45de/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/92bf478e960375910299a6ffb41b45de/.filecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/92bf478e960375910299a6ffb41b45de/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/92bf478e960375910299a6ffb41b45de/app.dill" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/92bf478e960375910299a6ffb41b45de/debug_android_application.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/92bf478e960375910299a6ffb41b45de/debug_android_application.stamp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/92bf478e960375910299a6ffb41b45de/flutter_assets.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/92bf478e960375910299a6ffb41b45de/flutter_assets.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/92bf478e960375910299a6ffb41b45de/kernel_snapshot_program.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/92bf478e960375910299a6ffb41b45de/kernel_snapshot_program.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/92bf478e960375910299a6ffb41b45de/kernel_snapshot_program.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/92bf478e960375910299a6ffb41b45de/kernel_snapshot_program.stamp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/92bf478e960375910299a6ffb41b45de/outputs.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/92bf478e960375910299a6ffb41b45de/outputs.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/92bf478e960375910299a6ffb41b45de/program.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/92bf478e960375910299a6ffb41b45de/program.dill" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/robot-rigolo.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/AgeSelectionPage.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/DifficultySelectionPage.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/version" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/version" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/other.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/intermediates/assets/debug/flutter_assets/AssetManifest.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/assets/debug/flutter_assets/AssetManifest.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/intermediates/assets/debug/flutter_assets/AssetManifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/assets/debug/flutter_assets/AssetManifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/intermediates/assets/debug/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/assets/debug/flutter_assets/kernel_blob.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/AssetManifest.bin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/AssetManifest.bin.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/AssetManifest.json.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/AssetManifest.json.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/kernel_blob.bin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/kernel_blob.bin.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/AssetManifest.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/AssetManifest.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/AssetManifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/AssetManifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/kernel_blob.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_build.d" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_build.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/apk/debug/app-debug.apk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app-debug.apk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app-debug.apk.sha1" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app-debug.apk.sha1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/f872507f30e2ff2523f0f1d19160266e.cache.dill.track.dill" beforeDir="false" afterPath="$PROJECT_DIR$/build/f872507f30e2ff2523f0f1d19160266e.cache.dill.track.dill" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/ButtonMain.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ButtonMain.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/CalculSimplePage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/CalculSimplePage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/GameListPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/GameListPage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +56,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
