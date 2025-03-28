@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
+import 'package:calculs/ButtonMain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
@@ -335,9 +336,12 @@ class _CalculSimpleTimerPageState extends State<CalculSimpleTimerPage> {
                         if (!widget.timerEnabled && _answered)
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 8.0),
-                            child: ElevatedButton(
+                            child: ButtonMain(
                               onPressed: _loadNextQuestion,
-                              child: const Text("Suivant"),
+                              text: 'Suivant',
+                              color1: Color(0xFF64D8DC),
+                              color2: Color(0xFF66C9FF),
+
                             ),
                           ),
                       ],

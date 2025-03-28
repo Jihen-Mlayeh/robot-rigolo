@@ -7,10 +7,14 @@ class ButtonMain extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
   final IconData? icon;
+  final Color? color1;
+  final Color? color2;
 
   const ButtonMain({
     Key? key,
     required this.text,
+    this.color1,
+    this.color2,
     required this.onPressed,
     this.icon,
   }) : super(key: key);
@@ -26,7 +30,7 @@ class ButtonMain extends StatelessWidget {
         curve: Curves.easeInOut,
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.orangeAccent, Colors.deepOrange],
+            colors: this.color1 != null && this.color2 != null ? [this.color1!,this.color2!] : [Colors.orangeAccent, Colors.deepOrange],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),

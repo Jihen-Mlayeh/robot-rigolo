@@ -1,4 +1,3 @@
-import 'package:calculs/CalculSimplePage.dart';
 import 'package:calculs/CalculSimpleTimerPage.dart';
 import 'package:flutter/material.dart';
 
@@ -198,7 +197,7 @@ class GameContainer extends StatelessWidget {
                   },
                   color: cardColor,
                   icon: Icons.directions_walk,
-                  title: 'Calculs contre la montre !',
+                  title: 'Jeu 3',
                   subtitle: '2 + 2 = ?',
                   iconColor: Colors.green,
                 ),
@@ -216,8 +215,8 @@ class GameContainer extends StatelessWidget {
                   },
                   color: cardColor,
                   icon: Icons.bedtime,
-                  title: 'Sleep',
-                  subtitle: '21h/week',
+                  title: 'Jeu 4',
+                  subtitle: 'description',
                   iconColor: Colors.deepPurpleAccent,
                 ),
                 const SizedBox(height: 16),
@@ -234,8 +233,8 @@ class GameContainer extends StatelessWidget {
                   },
                   color: cardColor,
                   icon: Icons.bedtime,
-                  title: 'Sleep',
-                  subtitle: '21h/week',
+                  title: 'Jeu 5',
+                  subtitle: 'description',
                   iconColor: Colors.deepPurpleAccent,
                 ),
               ],

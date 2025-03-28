@@ -1,5 +1,4 @@
 import 'package:calculs/ButtonMain.dart';
-import 'package:calculs/ChoiceExPage.dart';
 import 'package:calculs/GameListPage.dart';
 import 'package:flutter/material.dart';
 

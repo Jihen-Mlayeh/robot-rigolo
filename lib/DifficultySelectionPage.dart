@@ -9,10 +9,6 @@ class DifficultySelectionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Choisir le niveau de difficulté", style: GoogleFonts.comicNeue()),
-        backgroundColor: Colors.orangeAccent,
-      ),
       body: Container(
         width: double.infinity,
         decoration: BoxDecoration(

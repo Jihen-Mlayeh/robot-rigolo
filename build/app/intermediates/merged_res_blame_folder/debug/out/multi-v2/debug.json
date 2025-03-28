@@ -469,7 +469,7 @@
             "outputFile": "com.robotrigolo.calculs.calculs.app-merged_res-26:/values-night-v8_values-night-v8.arsc.flat",
             "map": [
                 {
-                    "source": "/home/valentin/Bureau/Cours/S2/conduiteprojet/calculGIT/robot-rigolo/android/app/src/main/res/values-night/styles.xml",
+                    "source": "/home/valentin/Bureau/rbrigologit juhen/robot-rigolo-valentin/android/app/src/main/res/values-night/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
@@ -739,7 +739,7 @@
                     }
                 },
                 {
-                    "source": "/home/valentin/Bureau/Cours/S2/conduiteprojet/calculGIT/robot-rigolo/android/app/src/main/res/values/styles.xml",
+                    "source": "/home/valentin/Bureau/rbrigologit juhen/robot-rigolo-valentin/android/app/src/main/res/values/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",

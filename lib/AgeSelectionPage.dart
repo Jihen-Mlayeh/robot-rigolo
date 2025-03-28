@@ -1,8 +1,9 @@
+import 'package:calculs/CalculSimpleTimerPage.dart';
+import 'package:calculs/GameListPage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/services.dart';
 import 'DifficultySelectionPage.dart';  // Importer la page de sélection de niveau de difficulté
-import 'CalculSimplePage.dart';  // Importer la page de calcul simple
 
 class AgeSelectionPage extends StatefulWidget {
   @override
@@ -16,13 +17,7 @@ class _AgeSelectionPageState extends State<AgeSelectionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Choisir l'âge de l'enfant",
-          style: GoogleFonts.comicNeue(fontSize: 22, fontWeight: FontWeight.bold),
-        ),
-        backgroundColor: Colors.orangeAccent,
-      ),
+
       body: Container(
         width: double.infinity,
         decoration: BoxDecoration(
@@ -124,7 +119,7 @@ class _AgeSelectionPageState extends State<AgeSelectionPage> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => CalculSimplePage(),
+                              builder: (context) => GameListPage(),
                             ),
                           );
                         } else {
