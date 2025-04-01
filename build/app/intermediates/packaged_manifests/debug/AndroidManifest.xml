@@ -39,8 +39,8 @@
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
         android:extractNativeLibs="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="calculs" >
+        android:icon="@mipmap/launcher_icon"
+        android:label="Robot rigolo" >
         <activity
             android:name="com.robotrigolo.calculs.calculs.MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"

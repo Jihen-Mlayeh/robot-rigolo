@@ -1,0 +1,1 @@
+ /home/valentin/Bureau/Cours/S2/conduiteprojet/calculGIT/robot-rigolo/.dart_tool/flutter_build/6f495d6cb3a4f60db70585a2a24207cc/native_assets.yaml: 
