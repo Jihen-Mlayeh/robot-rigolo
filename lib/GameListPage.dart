@@ -1,6 +1,9 @@
 import 'package:calculs/CalculSimpleTimerPage.dart';
 import 'package:flutter/material.dart';
 
+import 'CalculComplexeTimerPage.dart';
+import 'TableDeMultiplication.dart';
+
 class GameListPage extends StatefulWidget {
   const GameListPage({Key? key}) : super(key: key);
 
@@ -165,6 +168,45 @@ class GameContainer extends StatelessWidget {
                   subtitle: '2 + 2 = ?',
                   iconColor: Colors.blueAccent,
                 ),
+
+                const SizedBox(height: 16),
+
+                _StatCard(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CalculComplexeTimerPage(
+                          timerEnabled: timerEnabled,
+                        ),
+                      ),
+                    );
+                  },
+                  color: cardColor,
+                  icon: Icons.bedtime,
+                  title: 'Priorité opératoire',
+                  subtitle: '(3 + 5) × 2 = ?',
+                  iconColor: Colors.deepPurpleAccent,
+                ),
+                const SizedBox(height: 16),
+                _StatCard(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => TableDeMultiplication(
+                          timerEnabled: timerEnabled,
+                        ),
+                      ),
+                    );
+                  },
+                  color: cardColor,
+                  icon: Icons.bedtime,
+                  title: 'Table De Multiplication',
+                  subtitle: '1*4=?',
+                  iconColor: Colors.deepPurpleAccent,
+                ),
+
                 const SizedBox(height: 16),
                 _StatCard(
                   onTap: () {
@@ -183,60 +225,8 @@ class GameContainer extends StatelessWidget {
                   subtitle: '2 _ 3 = 6',
                   iconColor: Colors.redAccent,
                 ),
-                const SizedBox(height: 16),
-                _StatCard(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => CalculSimpleTimerPage(
-                          timerEnabled: timerEnabled,
-                        ),
-                      ),
-                    );
-                  },
-                  color: cardColor,
-                  icon: Icons.directions_walk,
-                  title: 'Jeu 3',
-                  subtitle: '2 + 2 = ?',
-                  iconColor: Colors.green,
-                ),
-                const SizedBox(height: 16),
-                _StatCard(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => CalculSimpleTimerPage(
-                          timerEnabled: timerEnabled,
-                        ),
-                      ),
-                    );
-                  },
-                  color: cardColor,
-                  icon: Icons.bedtime,
-                  title: 'Jeu 4',
-                  subtitle: 'description',
-                  iconColor: Colors.deepPurpleAccent,
-                ),
-                const SizedBox(height: 16),
-                _StatCard(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => CalculSimpleTimerPage(
-                          timerEnabled: timerEnabled,
-                        ),
-                      ),
-                    );
-                  },
-                  color: cardColor,
-                  icon: Icons.bedtime,
-                  title: 'Jeu 5',
-                  subtitle: 'description',
-                  iconColor: Colors.deepPurpleAccent,
-                ),
+
+
               ],
             ),
           ),
