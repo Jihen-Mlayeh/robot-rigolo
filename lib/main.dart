@@ -1,5 +1,6 @@
+import 'package:calculs/AgeSelectionPage.dart';
 import 'package:calculs/ButtonMain.dart';
-import 'package:calculs/GameListPage.dart';
+import 'package:calculs/GameListPageFacile.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -121,7 +122,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   children: [
                     SizedBox(width: 15),
                     ButtonMain(text: "Commencer", onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => GameListPage()));
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => AgeSelectionPage()));
                     })
                   ],
                 )

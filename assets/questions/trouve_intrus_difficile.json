@@ -1,0 +1,602 @@
+[
+  {
+    "question": "2, 4, 6, 9, 8",
+    "correctAnswer": 9,
+    "choices": [9, 2, 4, 6],
+    "explication": "9 n'est pas pair contrairement aux autres."
+  },
+  {
+    "question": "3, 6, 9, 11, 12",
+    "correctAnswer": 11,
+    "choices": [11, 9, 6, 3],
+    "explication": "11 ne suit pas la progression des multiples de 3."
+  },
+  {
+    "question": "5, 10, 17, 20",
+    "correctAnswer": 17,
+    "choices": [17, 10, 20, 5],
+    "explication": "17 n'est pas un multiple de 5 contrairement aux autres."
+  },
+  {
+    "question": "2, 3, 4, 8, 10",
+    "correctAnswer": 3,
+    "choices": [3, 2, 4, 8],
+    "explication": "3 est impair alors que les autres sont pairs."
+  },
+  {
+    "question": "7, 14, 21, 29, 28",
+    "correctAnswer": 29,
+    "choices": [29, 21, 14, 7],
+    "explication": "29 n'est pas un multiple de 7 contrairement aux autres."
+  },
+  {
+    "question": "11, 22, 33, 40, 55",
+    "correctAnswer": 40,
+    "choices": [40, 33, 22, 11],
+    "explication": "40 ne rentre pas dans la suite des multiplications par 11."
+  },
+  {
+    "question": "10, 20, 30, 25, 40",
+    "correctAnswer": 25,
+    "choices": [25, 20, 30, 40],
+    "explication": "25 ne suit pas l'ordre des multiples de 10."
+  },
+  {
+    "question": "4, 8, 16, 18, 32",
+    "correctAnswer": 18,
+    "choices": [18, 16, 8, 4],
+    "explication": "18 n'est pas une puissance de 2 contrairement aux autres."
+  },
+  {
+    "question": "9, 18, 27, 29, 36",
+    "correctAnswer": 29,
+    "choices": [29, 27, 18, 9],
+    "explication": "29 ne fait pas partie des multiples de 9."
+  },
+  {
+    "question": "1, 2, 4, 8, 11",
+    "correctAnswer": 11,
+    "choices": [11, 8, 4, 2],
+    "explication": "11 n'est pas une puissance de 2 contrairement aux autres."
+  },
+  {
+    "question": "3, 5, 7, 10",
+    "correctAnswer": 10,
+    "choices": [10, 7, 5, 3],
+    "explication": "10 n'est pas un nombre premier alors que les autres le sont."
+  },
+  {
+    "question": "2, 4, 8, 13, 16",
+    "correctAnswer": 13,
+    "choices": [13, 16, 8, 4],
+    "explication": "13 ne suit pas le doublement habituel et est impair."
+  },
+  {
+    "question": "6, 12, 18, 25, 24",
+    "correctAnswer": 25,
+    "choices": [25, 24, 18, 12],
+    "explication": "25 n'est pas un multiple de 6 contrairement aux autres."
+  },
+  {
+    "question": "10, 15, 20, 27, 30",
+    "correctAnswer": 27,
+    "choices": [27, 20, 15, 10],
+    "explication": "27 n'est pas un multiple de 5 alors que les autres le sont."
+  },
+  {
+    "question": "7, 14, 28, 35, 31",
+    "correctAnswer": 31,
+    "choices": [31, 28, 14, 7],
+    "explication": "31 n'est pas un multiple de 7 contrairement aux autres."
+  },
+  {
+    "question": "2, 6, 10, 14, 17",
+    "correctAnswer": 17,
+    "choices": [17, 14, 10, 6],
+    "explication": "17 ne suit pas l'incrément constant de 4."
+  },
+  {
+    "question": "4, 6, 8, 10, 11",
+    "correctAnswer": 11,
+    "choices": [11, 10, 8, 6],
+    "explication": "11 n'est pas pair contrairement aux autres."
+  },
+  {
+    "question": "3, 6, 9, 12, 14",
+    "correctAnswer": 14,
+    "choices": [14, 12, 9, 6],
+    "explication": "14 n'est pas un multiple de 3 alors que les autres le sont."
+  },
+  {
+    "question": "5, 10, 15, 20, 21",
+    "correctAnswer": 21,
+    "choices": [21, 15, 10, 5],
+    "explication": "21 n'est pas un multiple de 5 contrairement aux autres."
+  },
+  {
+    "question": "8, 16, 24, 35, 32",
+    "correctAnswer": 35,
+    "choices": [35, 32, 24, 16],
+    "explication": "35 ne correspond pas aux multiples de 8."
+  },
+  {
+    "question": "2, 5, 7, 11, 14",
+    "correctAnswer": 14,
+    "choices": [14, 11, 7, 5],
+    "explication": "14 n'est pas premier alors que les autres le sont."
+  },
+  {
+    "question": "3, 7, 10, 11",
+    "correctAnswer": 10,
+    "choices": [10, 11, 7, 3],
+    "explication": "10 n'est pas premier contrairement aux autres."
+  },
+  {
+    "question": "11, 13, 17, 20, 19",
+    "correctAnswer": 20,
+    "choices": [20, 17, 13, 11],
+    "explication": "20 n'est pas premier alors que les autres le sont."
+  },
+  {
+    "question": "2, 3, 5, 8, 7",
+    "correctAnswer": 8,
+    "choices": [8, 7, 5, 3],
+    "explication": "8 n'est pas un nombre premier contrairement aux autres."
+  },
+  {
+    "question": "4, 8, 12, 16, 15",
+    "correctAnswer": 15,
+    "choices": [15, 16, 12, 8],
+    "explication": "15 n'est pas un multiple de 4 contrairement aux autres."
+  },
+  {
+    "question": "6, 8, 10, 12, 11",
+    "correctAnswer": 11,
+    "choices": [11, 10, 8, 6],
+    "explication": "11 n'est pas pair alors que les autres le sont."
+  },
+  {
+    "question": "9, 12, 15, 18, 17",
+    "correctAnswer": 17,
+    "choices": [17, 15, 12, 9],
+    "explication": "17 n'est pas un multiple de 3 contrairement aux autres."
+  },
+  {
+    "question": "5, 10, 20, 25, 28",
+    "correctAnswer": 28,
+    "choices": [28, 25, 20, 10],
+    "explication": "28 n'est pas un multiple de 5 alors que les autres le sont."
+  },
+  {
+    "question": "7, 14, 21, 28, 27",
+    "correctAnswer": 27,
+    "choices": [27, 21, 14, 7],
+    "explication": "27 n'est pas un multiple de 7 contrairement aux autres."
+  },
+  {
+    "question": "3, 6, 9, 12, 10",
+    "correctAnswer": 10,
+    "choices": [10, 9, 6, 3],
+    "explication": "10 n'est pas un multiple de 3 alors que les autres le sont."
+  },
+  {
+    "question": "2, 4, 5, 6, 8",
+    "correctAnswer": 5,
+    "choices": [5, 6, 4, 2],
+    "explication": "5 ne s'inscrit pas dans la suite des nombres pairs."
+  },
+  {
+    "question": "10, 20, 30, 31, 40",
+    "correctAnswer": 31,
+    "choices": [31, 30, 20, 10],
+    "explication": "31 ne suit pas le schéma des multiples de 10."
+  },
+  {
+    "question": "12, 24, 36, 37, 48",
+    "correctAnswer": 37,
+    "choices": [37, 36, 24, 12],
+    "explication": "37 n'est pas un multiple de 12 contrairement aux autres."
+  },
+  {
+    "question": "5, 15, 25, 35, 32",
+    "correctAnswer": 32,
+    "choices": [32, 35, 25, 15],
+    "explication": "32 n'est pas un multiple de 5 alors que les autres le sont."
+  },
+  {
+    "question": "6, 12, 18, 28, 24",
+    "correctAnswer": 28,
+    "choices": [28, 24, 18, 12],
+    "explication": "28 n'est pas un multiple de 6 contrairement aux autres."
+  },
+  {
+    "question": "8, 16, 24, 32, 33",
+    "correctAnswer": 33,
+    "choices": [33, 32, 24, 16],
+    "explication": "33 n'est pas un multiple de 8 alors que les autres le sont."
+  },
+  {
+    "question": "7, 14, 21, 35, 42, 40",
+    "correctAnswer": 40,
+    "choices": [40, 42, 35, 21],
+    "explication": "40 n'est pas un multiple de 7 contrairement aux autres."
+  },
+  {
+    "question": "4, 8, 12, 16, 19",
+    "correctAnswer": 19,
+    "choices": [19, 16, 12, 8],
+    "explication": "19 n'est pas un multiple de 4 alors que les autres le sont."
+  },
+  {
+    "question": "2, 4, 8, 10, 16",
+    "correctAnswer": 10,
+    "choices": [10, 8, 4, 2],
+    "explication": "10 n'est pas une puissance de 2 contrairement aux autres."
+  },
+  {
+    "question": "5, 25, 125, 630, 625",
+    "correctAnswer": 630,
+    "choices": [630, 125, 25, 5],
+    "explication": "630 ne suit pas la progression des puissances de 5."
+  },
+  {
+    "question": "10, 30, 90, 100, 270",
+    "correctAnswer": 100,
+    "choices": [100, 90, 30, 10],
+    "explication": "100 n'est pas dans la progression géométrique des autres."
+  },
+  {
+    "question": "3, 9, 27, 28, 81",
+    "correctAnswer": 28,
+    "choices": [28, 27, 9, 3],
+    "explication": "28 n'est pas une puissance de 3 contrairement aux autres."
+  },
+  {
+    "question": "7, 49, 343, 350",
+    "correctAnswer": 350,
+    "choices": [350, 343, 49, 7],
+    "explication": "350 ne suit pas la progression des puissances de 7."
+  },
+  {
+    "question": "2, 4, 8, 16, 17",
+    "correctAnswer": 17,
+    "choices": [17, 16, 8, 4],
+    "explication": "17 n'est pas une puissance de 2 contrairement aux autres."
+  },
+  {
+    "question": "11, 22, 44, 53, 88",
+    "correctAnswer": 53,
+    "choices": [53, 44, 22, 11],
+    "explication": "53 n'est pas un multiple de 11 alors que les autres le sont."
+  },
+  {
+    "question": "3, 5, 7, 9, 11",
+    "correctAnswer": 9,
+    "choices": [9, 7, 5, 3],
+    "explication": "9 n'est pas premier contrairement aux autres."
+  },
+  {
+    "question": "13, 17, 19, 21, 23",
+    "correctAnswer": 21,
+    "choices": [21, 19, 17, 13],
+    "explication": "21 n'est pas premier alors que les autres le sont."
+  },
+  {
+    "question": "2, 3, 5, 7, 9",
+    "correctAnswer": 9,
+    "choices": [9, 7, 5, 3],
+    "explication": "9 n'est pas un nombre premier, contrairement aux autres."
+  },
+  {
+    "question": "4, 8, 12, 16, 13",
+    "correctAnswer": 13,
+    "choices": [13, 16, 12, 8],
+    "explication": "13 n'est pas un multiple de 4 alors que les autres le sont."
+  },
+  {
+    "question": "6, 8, 10, 12, 8",
+    "correctAnswer": 8,
+    "choices": [8, 10, 12, 6],
+    "explication": "Le dernier 8 ne suit pas la progression croissante attendue."
+  },
+  {
+    "question": "9, 12, 15, 18, 29",
+    "correctAnswer": 29,
+    "choices": [29, 18, 15, 12],
+    "explication": "29 n'est pas un multiple de 3 contrairement aux autres."
+  },
+  {
+    "question": "5, 10, 15, 20, 23",
+    "correctAnswer": 23,
+    "choices": [23, 20, 15, 10],
+    "explication": "23 n'est pas un multiple de 5 alors que les autres le sont."
+  },
+  {
+    "question": "7, 14, 21, 28, 33",
+    "correctAnswer": 33,
+    "choices": [33, 28, 21, 14],
+    "explication": "33 n'est pas un multiple de 7 contrairement aux autres."
+  },
+  {
+    "question": "8, 16, 24, 32, 36",
+    "correctAnswer": 36,
+    "choices": [36, 32, 24, 16],
+    "explication": "36 n'est pas un multiple de 8 alors que les autres le sont."
+  },
+  {
+    "question": "9, 18, 27, 36, 40",
+    "correctAnswer": 40,
+    "choices": [40, 36, 27, 18],
+    "explication": "40 n'est pas un multiple de 9 contrairement aux autres."
+  },
+  {
+    "question": "10, 20, 30, 40, 42",
+    "correctAnswer": 42,
+    "choices": [42, 40, 30, 20],
+    "explication": "42 n'est pas un multiple de 10 alors que les autres le sont."
+  },
+  {
+    "question": "12, 24, 36, 48, 55",
+    "correctAnswer": 55,
+    "choices": [55, 48, 36, 24],
+    "explication": "55 n'est pas un multiple de 12 contrairement aux autres."
+  },
+  {
+    "question": "15, 30, 45, 60, 62",
+    "correctAnswer": 62,
+    "choices": [62, 60, 45, 30],
+    "explication": "62 ne suit pas la progression des multiples de 15."
+  },
+  {
+    "question": "3, 6, 12, 15, 18",
+    "correctAnswer": 15,
+    "choices": [15, 12, 6, 3],
+    "explication": "15 ne s'inscrit pas dans la progression attendue des autres nombres."
+  },
+  {
+    "question": "5, 7, 11, 13, 16",
+    "correctAnswer": 16,
+    "choices": [16, 13, 11, 7],
+    "explication": "16 n'est pas premier alors que les autres le sont."
+  },
+  {
+    "question": "2, 4, 6, 8, 11, 12",
+    "correctAnswer": 11,
+    "choices": [11, 8, 6, 4],
+    "explication": "11 ne s'intègre pas dans la suite des nombres pairs."
+  },
+  {
+    "question": "7, 14, 28, 35, 42, 50",
+    "correctAnswer": 50,
+    "choices": [50, 42, 35, 14],
+    "explication": "50 n'est pas un multiple de 7 contrairement aux autres."
+  },
+  {
+    "question": "3, 6, 9, 12, 14, 15",
+    "correctAnswer": 14,
+    "choices": [14, 12, 9, 6],
+    "explication": "14 ne suit pas la progression régulière des multiples de 3."
+  },
+  {
+    "question": "8, 16, 32, 40, 64",
+    "correctAnswer": 40,
+    "choices": [40, 32, 16, 8],
+    "explication": "40 n'est pas une puissance de 2 contrairement aux autres."
+  },
+  {
+    "question": "10, 20, 30, 45, 60",
+    "correctAnswer": 45,
+    "choices": [45, 30, 20, 10],
+    "explication": "45 n'est pas un multiple de 10 alors que les autres le sont."
+  },
+  {
+    "question": "2, 3, 4, 5, 8",
+    "correctAnswer": 8,
+    "choices": [8, 5, 4, 3],
+    "explication": "8 ne suit pas l'incrément constant de +1 attendu (devrait être 6)."
+  },
+  {
+    "question": "11, 12, 13, 14, 17",
+    "correctAnswer": 17,
+    "choices": [17, 14, 13, 12],
+    "explication": "17 ne fait pas partie de la suite des nombres consécutifs."
+  },
+  {
+    "question": "6, 7, 8, 10",
+    "correctAnswer": 10,
+    "choices": [10, 8, 7, 6],
+    "explication": "10 ne suit pas la séquence consécutive attendue (devrait être 9)."
+  },
+  {
+    "question": "3, 4, 5, 6, 8",
+    "correctAnswer": 8,
+    "choices": [8, 6, 5, 4],
+    "explication": "8 ne suit pas l'ordre consécutif (devrait être 7)."
+  },
+  {
+    "question": "9, 10, 11, 13",
+    "correctAnswer": 13,
+    "choices": [13, 11, 10, 9],
+    "explication": "13 ne respecte pas l'incrément constant de +1."
+  },
+  {
+    "question": "12, 14, 16, 19",
+    "correctAnswer": 19,
+    "choices": [19, 16, 14, 12],
+    "explication": "19 n'est pas pair contrairement aux autres."
+  },
+  {
+    "question": "15, 18, 21, 25, 27",
+    "correctAnswer": 25,
+    "choices": [25, 21, 18, 15],
+    "explication": "25 ne respecte pas l'incrément constant attendu (+3)."
+  },
+  {
+    "question": "2, 4, 6, 8, 10, 13",
+    "correctAnswer": 13,
+    "choices": [13, 10, 8, 6],
+    "explication": "13 ne suit pas l'incrément de 2 (devrait être 12)."
+  },
+  {
+    "question": "5, 10, 15, 17, 20",
+    "correctAnswer": 17,
+    "choices": [17, 15, 10, 5],
+    "explication": "17 n'est pas un multiple de 5 contrairement aux autres."
+  },
+  {
+    "question": "7, 14, 21, 26, 28",
+    "correctAnswer": 26,
+    "choices": [26, 21, 14, 7],
+    "explication": "26 n'est pas un multiple de 7 alors que les autres le sont."
+  },
+  {
+    "question": "3, 6, 9, 12, 17",
+    "correctAnswer": 17,
+    "choices": [17, 12, 9, 6],
+    "explication": "17 n'est pas un multiple de 3 contrairement aux autres."
+  },
+  {
+    "question": "8, 16, 24, 31, 32",
+    "correctAnswer": 31,
+    "choices": [31, 24, 16, 8],
+    "explication": "31 ne suit pas la progression des multiples de 8."
+  },
+  {
+    "question": "4, 8, 12, 16, 22",
+    "correctAnswer": 22,
+    "choices": [22, 16, 12, 8],
+    "explication": "22 n'est pas un multiple de 4 contrairement aux autres."
+  },
+  {
+    "question": "11, 22, 33, 44, 50",
+    "correctAnswer": 50,
+    "choices": [50, 44, 33, 22],
+    "explication": "50 n'est pas un multiple de 11 alors que les autres le sont."
+  },
+  {
+    "question": "13, 26, 39, 52, 55",
+    "correctAnswer": 55,
+    "choices": [55, 52, 39, 26],
+    "explication": "55 n'est pas un multiple de 13 contrairement aux autres."
+  },
+  {
+    "question": "2, 4, 8, 9, 16",
+    "correctAnswer": 9,
+    "choices": [9, 8, 4, 2],
+    "explication": "9 n'est pas une puissance de 2 contrairement aux autres."
+  },
+  {
+    "question": "3, 6, 12, 24, 28",
+    "correctAnswer": 28,
+    "choices": [28, 24, 12, 6],
+    "explication": "28 ne s'inscrit pas dans la progression géométrique attendue."
+  },
+  {
+    "question": "5, 10, 20, 40, 42",
+    "correctAnswer": 42,
+    "choices": [42, 40, 20, 10],
+    "explication": "42 n'est pas le double du précédent contrairement aux autres."
+  },
+  {
+    "question": "7, 14, 28, 56, 60",
+    "correctAnswer": 60,
+    "choices": [60, 56, 28, 14],
+    "explication": "60 n'est pas le double du précédent, contrairement aux autres."
+  },
+  {
+    "question": "9, 18, 36, 72, 75",
+    "correctAnswer": 75,
+    "choices": [75, 72, 36, 18],
+    "explication": "75 n'est pas le double du précédent contrairement aux autres."
+  },
+  {
+    "question": "11, 22, 44, 88, 90",
+    "correctAnswer": 90,
+    "choices": [90, 88, 44, 22],
+    "explication": "90 n'est pas le double du précédent alors que les autres le sont."
+  },
+  {
+    "question": "12, 15, 18, 21, 25",
+    "correctAnswer": 25,
+    "choices": [25, 21, 18, 15],
+    "explication": "25 ne respecte pas l'incrément constant attendu."
+  },
+  {
+    "question": "4, 7, 10, 12, 17",
+    "correctAnswer": 12,
+    "choices": [12, 10, 7, 4],
+    "explication": "12 ne suit pas l'incrément de +3 attendu (devrait être 13)."
+  },
+  {
+    "question": "5, 8, 11, 14, 19",
+    "correctAnswer": 19,
+    "choices": [19, 14, 11, 8],
+    "explication": "19 ne s'inscrit pas dans l'incrément constant de +3."
+  },
+  {
+    "question": "6, 9, 12, 15, 19",
+    "correctAnswer": 19,
+    "choices": [19, 15, 12, 9],
+    "explication": "19 n'est pas un multiple de 3 alors que les autres le sont."
+  },
+  {
+    "question": "2, 5, 8, 11, 14, 16",
+    "correctAnswer": 16,
+    "choices": [16, 14, 11, 8],
+    "explication": "16 ne suit pas l'incrément constant attendu."
+  },
+  {
+    "question": "3, 6, 9, 12, 15, 17",
+    "correctAnswer": 17,
+    "choices": [17, 15, 12, 9],
+    "explication": "17 ne respecte pas la progression arithmétique des autres."
+  },
+  {
+    "question": "7, 14, 21, 28, 35, 37",
+    "correctAnswer": 37,
+    "choices": [37, 35, 28, 21],
+    "explication": "37 n'est pas un multiple de 7 contrairement aux autres."
+  },
+  {
+    "question": "8, 16, 24, 31, 40, 48",
+    "correctAnswer": 31,
+    "choices": [31, 40, 32, 24],
+    "explication": "31 ne suit pas la progression des multiples de 8."
+  },
+  {
+    "question": "9, 18, 27, 36, 45, 50",
+    "correctAnswer": 50,
+    "choices": [50, 45, 36, 27],
+    "explication": "50 n'est pas le double du précédent comme attendu."
+  },
+  {
+    "question": "10, 20, 30, 40, 50, 55",
+    "correctAnswer": 55,
+    "choices": [55, 50, 40, 30],
+    "explication": "55 ne respecte pas l'incrément constant de 10."
+  },
+  {
+    "question": "11, 22, 33, 44, 55, 60",
+    "correctAnswer": 60,
+    "choices": [60, 55, 44, 33],
+    "explication": "60 n'est pas un multiple de 11 contrairement aux autres."
+  },
+  {
+    "question": "12, 24, 36, 48, 50, 72",
+    "correctAnswer": 50,
+    "choices": [50, 72, 60, 48],
+    "explication": "50 ne s'inscrit pas dans la progression des multiples de 12."
+  },
+  {
+    "question": "13, 26, 39, 52, 65, 70",
+    "correctAnswer": 70,
+    "choices": [70, 65, 52, 39],
+    "explication": "70 n'est pas un multiple de 13 contrairement aux autres."
+  },
+  {
+    "question": "5, 10, 15, 20, 25, 30, 33",
+    "correctAnswer": 33,
+    "choices": [33, 30, 25, 20],
+    "explication": "33 n'est pas un multiple de 5 alors que les autres le sont."
+  }
+]

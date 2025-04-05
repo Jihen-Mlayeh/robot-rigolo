@@ -22,7 +22,7 @@ class _TableDeMultiplicationState extends State<TableDeMultiplication> {
   List<List<bool>> _isLocked = [];
   String _feedbackText = "À toi de jouer !";
   String _robotEmotion = 'assets/images/QT/emotions/heureux2.png';
-  int _timeLeft = 30; // 30 secondes par défaut
+  int _timeLeft = 180; // 30 secondes par défaut
   Timer? _timer;
   int _score = 0;
 
@@ -102,7 +102,7 @@ class _TableDeMultiplicationState extends State<TableDeMultiplication> {
 
   void _resetGame() {
     setState(() {
-      _timeLeft = 30;
+      _timeLeft = 180;
       _score = 0;
       _initializeControllers();
       if (widget.timerEnabled) {
@@ -298,7 +298,7 @@ class _TableDeMultiplicationState extends State<TableDeMultiplication> {
                                         for (int col = 1; col <= 5; col++)
                                           DataCell(
                                             SizedBox(
-                                              width: 50,
+                                              width: 40,
                                               height: 40,
                                               child: Focus(
                                                 onFocusChange: (hasFocus) {

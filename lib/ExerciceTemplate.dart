@@ -25,19 +25,20 @@ class Question {
   }
 }
 
-class CalculSimpleTimerPage extends StatefulWidget {
+class ExerciceTemplate extends StatefulWidget {
   // Paramètre pour activer ou non le timer
   final bool timerEnabled;
+  final String exerciceFile;
 
-  const CalculSimpleTimerPage({Key? key, this.timerEnabled = true})
+  const ExerciceTemplate({Key? key, this.timerEnabled = true, this.exerciceFile = 'assets/questions/simple_calcul.json'})
       : super(key: key);
 
   @override
-  State<CalculSimpleTimerPage> createState() => _CalculSimpleTimerPageState();
+  State<ExerciceTemplate> createState() => _ExerciceTemplateState();
 }
 
-class _CalculSimpleTimerPageState extends State<CalculSimpleTimerPage> {
-  int _timeLeft = 30;
+class _ExerciceTemplateState extends State<ExerciceTemplate> {
+  int _timeLeft = 60;
   Timer? _timer;
   List<Question> _questions = [];
   Question? _currentQuestion;
@@ -91,7 +92,7 @@ class _CalculSimpleTimerPageState extends State<CalculSimpleTimerPage> {
 
   Future<void> _loadQuestions() async {
     final String response =
-    await rootBundle.loadString('assets/questions/simple_calcul.json');
+    await rootBundle.loadString(widget.exerciceFile);
     final List<dynamic> data = json.decode(response);
     setState(() {
       _questions = data.map((q) => Question.fromJson(q)).toList();
@@ -133,7 +134,7 @@ class _CalculSimpleTimerPageState extends State<CalculSimpleTimerPage> {
 
   void _restartGame() {
     setState(() {
-      _timeLeft = 30;
+      _timeLeft = 60;
       _score = 0;
       _answered = false;
       _selectedAnswer = null;
@@ -173,8 +174,6 @@ class _CalculSimpleTimerPageState extends State<CalculSimpleTimerPage> {
       }
     });
 
-    // Si le timer est activé, passer automatiquement à la question suivante après 1 seconde.
-    // Sinon, on attend que l'utilisateur appuie sur le bouton "Suivant".
     if (widget.timerEnabled) {
       Timer(const Duration(seconds: 1), () {
         _loadNextQuestion();

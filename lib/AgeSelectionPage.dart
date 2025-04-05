@@ -1,5 +1,5 @@
-import 'package:calculs/CalculSimpleTimerPage.dart';
-import 'package:calculs/GameListPage.dart';
+
+import 'package:calculs/GameListPageFacile.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/services.dart';
@@ -33,14 +33,14 @@ class _AgeSelectionPageState extends State<AgeSelectionPage> {
             children: [
               // Titre avec l'âge sélectionné
               Text(
-                "Âge de l'enfant: $selectedAge ans",
+                "Quel est ton age ?",
                 style: GoogleFonts.comicNeue(
-                  fontSize: 28,
+                  fontSize: 30,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 10),
 
               // Conteneur pour le sélecteur d'âge
               Container(
@@ -76,8 +76,17 @@ class _AgeSelectionPageState extends State<AgeSelectionPage> {
                   ),
                 ),
               ),
-              SizedBox(height: 40),
+              SizedBox(height: 20),
 
+              Text(
+                "Tu as $selectedAge ans !",
+                style: GoogleFonts.comicNeue(
+                  fontSize:30,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+              SizedBox(height: 20),
               // Bouton bien positionné
               GestureDetector(
                 onTapDown: (_) => HapticFeedback.lightImpact(),
@@ -115,11 +124,11 @@ class _AgeSelectionPageState extends State<AgeSelectionPage> {
                             ),
                           );
                         } else if (selectedAge >= 5 && selectedAge <= 7) {
-                          // Naviguer vers la page de calcul simple
+
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => GameListPage(),
+                              builder: (context) => GameListPageFacile(),
                             ),
                           );
                         } else {

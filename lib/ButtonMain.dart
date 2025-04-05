@@ -47,11 +47,9 @@ class ButtonMain extends StatelessWidget {
           color: Colors.transparent,
           child: InkWell(
             onTap: () {
-              // Action de navigation vers la page de sélection de l'âge
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => AgeSelectionPage()),
-              );
+
+              HapticFeedback.lightImpact(); // Effet de vibration léger
+              onPressed();
             },
             borderRadius: BorderRadius.circular(20),
             splashColor: Colors.white.withOpacity(0.3),
