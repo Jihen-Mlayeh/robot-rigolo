@@ -25,7 +25,8 @@ class Question {
 }
 
 class BullesMagiquesPage extends StatefulWidget {
-  const BullesMagiquesPage({Key? key}) : super(key: key);
+  String file = "assets/questions/simple_calcul.json";
+  BullesMagiquesPage({Key? key, required this.file}) : super(key: key);
 
   @override
   _BullesMagiquesPageState createState() => _BullesMagiquesPageState();
@@ -66,7 +67,7 @@ class _BullesMagiquesPageState extends State<BullesMagiquesPage> {
 
   Future<void> _loadQuestions() async {
     final String response =
-    await rootBundle.loadString('assets/questions/simple_calcul.json');
+    await rootBundle.loadString(widget.file);
     final List<dynamic> data = json.decode(response);
     setState(() {
       _questions = data.map((q) => Question.fromJson(q)).toList();
@@ -161,6 +162,7 @@ class _BullesMagiquesPageState extends State<BullesMagiquesPage> {
                     style: const TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
+                      fontFamily: "Hellocute",
                       color: Colors.white,
                     ),
                     textAlign: TextAlign.center,
@@ -213,14 +215,14 @@ class _BullesMagiquesPageState extends State<BullesMagiquesPage> {
                     style: const TextStyle(
                       fontSize: 50,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: Colors.white
                     ),
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 10),
                   Text(
                     "Score: $_score",
-                    style: const TextStyle(fontSize: 30, color: Colors.white),
+                    style: const TextStyle(fontSize: 30, color: Colors.white,fontFamily: "Coconut"),
                   ),
                 ],
               ),
@@ -319,7 +321,8 @@ class _BubbleWidgetState extends State<BubbleWidget>
                 style: const TextStyle(
                   fontSize: 24,
                   color: Colors.white,
-                  fontWeight: FontWeight.bold,
+
+                    fontFamily: "Coconut"
                 ),
               ),
             ),

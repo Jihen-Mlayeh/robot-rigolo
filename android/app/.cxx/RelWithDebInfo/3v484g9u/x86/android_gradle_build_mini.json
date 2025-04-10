@@ -1,0 +1,20 @@
+{
+  "buildFiles": [
+    "/home/valentin/flutter/flutter/packages/flutter_tools/gradle/src/main/groovy/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/usr/bin/ninja",
+      "-C",
+      "/home/valentin/Bureau/Cours/S2/conduiteprojet/calculGIT/robot-rigolo/android/app/.cxx/RelWithDebInfo/3v484g9u/x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/usr/bin/ninja",
+    "-C",
+    "/home/valentin/Bureau/Cours/S2/conduiteprojet/calculGIT/robot-rigolo/android/app/.cxx/RelWithDebInfo/3v484g9u/x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {}
+}

@@ -31,10 +31,11 @@ class DifficultySelectionPage extends StatelessWidget {
                   // Titre d'introduction
                   Text(
                     "Tu as $age ans,\n choisi ton chemin !",
-                    style: GoogleFonts.comicNeue(
+                    style: TextStyle(
                       fontSize: 35,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
+                      fontFamily: "Coconut",
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -122,12 +123,13 @@ class DifficultySelectionPage extends StatelessWidget {
                             child: Padding(
                               padding: const EdgeInsets.only(right: 20, bottom: 10),
                               child: Text(
-                                "Amuse-toi bien !",
+                                "Amuse toi bien !",
                                 textAlign: TextAlign.center,
                                 style: const TextStyle(
-                                  fontSize: 24,
+                                  fontSize: 20,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.black,
+                                  fontFamily: "HelloCute",
                                 ),
                                 softWrap: true,
                               ),
@@ -205,10 +207,11 @@ class DifficultySelectionPage extends StatelessWidget {
             const SizedBox(height: 10),
             Text(
               title,
-              style: GoogleFonts.comicNeue(
+              style: TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
+                fontFamily: "Coconut",
               ),
             ),
           ],

@@ -1,4 +1,5 @@
 
+import 'package:calculs/ButtonMain.dart';
 import 'package:calculs/GameListPageFacile.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -34,10 +35,11 @@ class _AgeSelectionPageState extends State<AgeSelectionPage> {
               // Titre avec l'âge sélectionné
               Text(
                 "Quel est ton age ?",
-                style: GoogleFonts.comicNeue(
+                style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
+                  fontFamily: "Coconut",
                 ),
               ),
               SizedBox(height: 10),
@@ -68,6 +70,7 @@ class _AgeSelectionPageState extends State<AgeSelectionPage> {
                             fontSize: 32,
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
+                            fontFamily: "Coconut",
                           ),
                         ),
                       );
@@ -80,78 +83,38 @@ class _AgeSelectionPageState extends State<AgeSelectionPage> {
 
               Text(
                 "Tu as $selectedAge ans !",
-                style: GoogleFonts.comicNeue(
+                style: TextStyle(
                   fontSize:30,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
+                  fontFamily: "Coconut",
                 ),
               ),
               SizedBox(height: 20),
               // Bouton bien positionné
-              GestureDetector(
-                onTapDown: (_) => HapticFeedback.lightImpact(),
-                child: AnimatedContainer(
-                  width: 250,
-                  height: 70,
-                  duration: Duration(milliseconds: 200),
-                  curve: Curves.easeInOut,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [Colors.orangeAccent, Colors.deepOrange],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
+              ButtonMain(text: "C'est parti !", onPressed: () {
+                // Redirection en fonction de l'âge sélectionné
+                if (selectedAge >= 8 && selectedAge <= 11) {
+                  // Naviguer vers la page de sélection de difficulté
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DifficultySelectionPage(age: selectedAge),
                     ),
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.orange.withOpacity(0.5),
-                        blurRadius: 10,
-                        offset: Offset(2, 4),
-                      ),
-                    ],
-                  ),
-                  child: Material(
-                    color: Colors.transparent,
-                    child: InkWell(
-                      onTap: () {
-                        // Redirection en fonction de l'âge sélectionné
-                        if (selectedAge >= 8 && selectedAge <= 11) {
-                          // Naviguer vers la page de sélection de difficulté
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => DifficultySelectionPage(age: selectedAge),
-                            ),
-                          );
-                        } else if (selectedAge >= 5 && selectedAge <= 7) {
+                  );
+                } else if (selectedAge >= 5 && selectedAge <= 7) {
 
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => GameListPageFacile(),
-                            ),
-                          );
-                        } else {
-                          // Par exemple, revenir à la page précédente ou rediriger vers une autre page
-                          Navigator.pop(context);
-                        }
-                      },
-                      borderRadius: BorderRadius.circular(20),
-                      splashColor: Colors.white.withOpacity(0.3),
-                      child: Center(
-                        child: Text(
-                          "C'est Parti!",
-                          style: GoogleFonts.comicNeue(
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => GameListPageFacile(),
                     ),
-                  ),
-                ),
-              ),
+                  );
+                } else {
+                  // Par exemple, revenir à la page précédente ou rediriger vers une autre page
+                  Navigator.pop(context);
+                }
+              })
             ],
           ),
         ),

@@ -9,11 +9,13 @@ class Question {
   final String question;
   final int correctAnswer;
   final List<int> choices;
+  final String? explication; // Champ optionnel pour l'explication
 
   Question({
     required this.question,
     required this.correctAnswer,
     required this.choices,
+    this.explication,
   });
 
   factory Question.fromJson(Map<String, dynamic> json) {
@@ -21,6 +23,7 @@ class Question {
       question: json['question'],
       correctAnswer: json['correctAnswer'],
       choices: List<int>.from(json['choices']),
+      explication: json.containsKey('explication') ? json['explication'] : null,
     );
   }
 }
@@ -29,9 +32,14 @@ class ExerciceTemplate extends StatefulWidget {
   // Paramètre pour activer ou non le timer
   final bool timerEnabled;
   final String exerciceFile;
+  final String title;
 
-  const ExerciceTemplate({Key? key, this.timerEnabled = true, this.exerciceFile = 'assets/questions/simple_calcul.json'})
-      : super(key: key);
+  const ExerciceTemplate({
+    Key? key,
+    this.timerEnabled = true,
+    this.exerciceFile = 'assets/questions/simple_calcul.json',
+    required this.title,
+  }) : super(key: key);
 
   @override
   State<ExerciceTemplate> createState() => _ExerciceTemplateState();
@@ -42,6 +50,7 @@ class _ExerciceTemplateState extends State<ExerciceTemplate> {
   Timer? _timer;
   List<Question> _questions = [];
   Question? _currentQuestion;
+  List<int> _shuffledChoices = [];
   int _score = 0;
   bool _answered = false;
   int? _selectedAnswer;
@@ -91,8 +100,7 @@ class _ExerciceTemplateState extends State<ExerciceTemplate> {
   }
 
   Future<void> _loadQuestions() async {
-    final String response =
-    await rootBundle.loadString(widget.exerciceFile);
+    final String response = await rootBundle.loadString(widget.exerciceFile);
     final List<dynamic> data = json.decode(response);
     setState(() {
       _questions = data.map((q) => Question.fromJson(q)).toList();
@@ -150,8 +158,13 @@ class _ExerciceTemplateState extends State<ExerciceTemplate> {
       final random = Random();
       setState(() {
         _currentQuestion = _questions[random.nextInt(_questions.length)];
+        // Création d'une copie mélangée des choix
+        _shuffledChoices = List<int>.from(_currentQuestion!.choices);
+        _shuffledChoices.shuffle();
         _answered = false;
         _selectedAnswer = null;
+        _feedbackText = "À toi de jouer !";
+        _emotionImage = 'assets/images/QT/emotions/heureux2.png';
       });
     }
   }
@@ -164,10 +177,8 @@ class _ExerciceTemplateState extends State<ExerciceTemplate> {
 
       if (selectedAnswer == _currentQuestion!.correctAnswer) {
         _score++;
-        _feedbackText =
-        _successMessages[Random().nextInt(_successMessages.length)];
-        _emotionImage =
-        _successEmotions[Random().nextInt(_successEmotions.length)];
+        _feedbackText = _successMessages[Random().nextInt(_successMessages.length)];
+        _emotionImage = _successEmotions[Random().nextInt(_successEmotions.length)];
       } else {
         _feedbackText = _failMessages[Random().nextInt(_failMessages.length)];
         _emotionImage = _failEmotions[Random().nextInt(_failEmotions.length)];
@@ -190,7 +201,7 @@ class _ExerciceTemplateState extends State<ExerciceTemplate> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color(0xFF74F1F5),
       body: SafeArea(
         child: Stack(
           children: [
@@ -225,7 +236,7 @@ class _ExerciceTemplateState extends State<ExerciceTemplate> {
                         textAlign: TextAlign.center,
                         style: const TextStyle(
                           fontSize: 24,
-                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Hellocute',
                           color: Colors.black,
                         ),
                       ),
@@ -279,7 +290,7 @@ class _ExerciceTemplateState extends State<ExerciceTemplate> {
                       gradient: LinearGradient(
                         colors: [
                           Colors.orange.shade300,
-                          Colors.orange.shade500
+                          Colors.orange.shade500,
                         ],
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
@@ -292,7 +303,9 @@ class _ExerciceTemplateState extends State<ExerciceTemplate> {
                         if (widget.timerEnabled)
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
-                            children: [TimerWidget(timeLeft: _timeLeft)],
+                            children: [
+                              TimerWidget(timeLeft: _timeLeft)
+                            ],
                           ),
                         Text(
                           _currentQuestion?.question ?? 'Chargement...',
@@ -309,7 +322,7 @@ class _ExerciceTemplateState extends State<ExerciceTemplate> {
                             crossAxisCount: 2,
                             mainAxisSpacing: 16.0,
                             crossAxisSpacing: 16.0,
-                            children: _currentQuestion!.choices.map((choice) {
+                            children: _shuffledChoices.map((choice) {
                               Color? buttonColor = Colors.white;
                               if (_answered) {
                                 if (choice == _currentQuestion!.correctAnswer) {
@@ -331,16 +344,47 @@ class _ExerciceTemplateState extends State<ExerciceTemplate> {
                           )
                               : const Center(child: CircularProgressIndicator()),
                         ),
-                        // Si le timer est désactivé et qu'une réponse a été donnée, afficher un bouton "Suivant"
-                        if (!widget.timerEnabled && _answered)
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 8.0),
-                            child: ButtonMain(
-                              onPressed: _loadNextQuestion,
-                              text: 'Suivant',
-                              color1: Color(0xFF64D8DC),
-                              color2: Color(0xFF66C9FF),
-
+                        // Affichage pour le mode sans timer
+                        if (!widget.timerEnabled)
+                          _answered
+                              ? Column(
+                            children: [
+                              // Affichage de l'explication (si présente)
+                              if (_currentQuestion?.explication != null)
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 8.0),
+                                  child: Text(
+                                    _currentQuestion!.explication!,
+                                    textAlign: TextAlign.center,
+                                    style: const TextStyle(
+                                      fontSize: 25,
+                                      fontFamily: 'Coconut',
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                                child: ButtonMain(
+                                  onPressed: _loadNextQuestion,
+                                  text: 'Suivant',
+                                  color1: const Color(0xFF64D8DC),
+                                  color2: const Color(0xFF66C9FF),
+                                ),
+                              ),
+                            ],
+                          )
+                              : Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 50),
+                            child: Text(
+                              widget.title,
+                              style: const TextStyle(
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                fontFamily: 'Coconut',
+                              ),
                             ),
                           ),
                       ],
@@ -382,7 +426,10 @@ class ReponseButton extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: const TextStyle(color: Colors.black),
+        style: const TextStyle(
+          color: Colors.black,
+          fontFamily: 'Coconut',
+        ),
       ),
     );
   }

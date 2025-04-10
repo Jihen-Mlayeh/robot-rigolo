@@ -1,0 +1,1 @@
+/home/valentin/Bureau/Cours/S2/conduiteprojet/calculGIT/robot-rigolo/build/app/intermediates/cxx/RelWithDebInfo/3v484g9u/obj/x86

@@ -1,0 +1,1 @@
+/home/valentin/Bureau/Cours/S2/conduiteprojet/calculGIT/robot-rigolo/build/app/intermediates/cxx/Debug/3zt5r5n6/obj/armeabi-v7a

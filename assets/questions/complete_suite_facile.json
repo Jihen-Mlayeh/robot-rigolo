@@ -270,12 +270,7 @@
     "choices": [20, 18, 22, 25],
     "explication": "La suite augmente de 5 : 5, 10, 15, 20, 25."
   },
-  {
-    "question": "1, 2, 4, X, 16",
-    "correctAnswer": 8,
-    "choices": [8, 7, 9, 10],
-    "explication": "C'est la suite des puissances de 2 : 1, 2, 4, 8, 16."
-  },
+
   {
     "question": "3, 3, 6, X, 12",
     "correctAnswer": 9,

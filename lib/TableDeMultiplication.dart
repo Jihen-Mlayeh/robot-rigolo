@@ -22,7 +22,7 @@ class _TableDeMultiplicationState extends State<TableDeMultiplication> {
   List<List<bool>> _isLocked = [];
   String _feedbackText = "À toi de jouer !";
   String _robotEmotion = 'assets/images/QT/emotions/heureux2.png';
-  int _timeLeft = 180; // 30 secondes par défaut
+  int _timeLeft = 180; // 180 secondes par défaut
   Timer? _timer;
   int _score = 0;
 
@@ -85,7 +85,7 @@ class _TableDeMultiplicationState extends State<TableDeMultiplication> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text("Temps écoulé !"),
-          content: Text("Votre score: $_score/50"),
+          content: Text("Votre score : $_score/50"),
           actions: <Widget>[
             TextButton(
               child: const Text("Rejouer"),
@@ -114,10 +114,7 @@ class _TableDeMultiplicationState extends State<TableDeMultiplication> {
   void _initializeControllers() {
     _controllers = List.generate(
       9,
-          (row) => List.generate(
-        5,
-            (col) => TextEditingController(),
-      ),
+          (row) => List.generate(5, (col) => TextEditingController()),
     );
     _isCorrect = List.generate(9, (_) => List.filled(5, false));
     _isLocked = List.generate(9, (_) => List.filled(5, false));
@@ -158,11 +155,11 @@ class _TableDeMultiplicationState extends State<TableDeMultiplication> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color(0xFF74F1F5),
       body: SafeArea(
         child: Stack(
           children: [
-            // Bulle de dialogue
+            // Partie haute : Bulle de dialogue
             Stack(
               children: [
                 Padding(
@@ -181,11 +178,7 @@ class _TableDeMultiplicationState extends State<TableDeMultiplication> {
                   child: Container(
                     width: 115,
                     height: 70,
-                    padding: const EdgeInsets.all(0),
                     alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
                     child: FittedBox(
                       fit: BoxFit.scaleDown,
                       child: Text(
@@ -195,6 +188,7 @@ class _TableDeMultiplicationState extends State<TableDeMultiplication> {
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                           color: Colors.black,
+                          fontFamily: "Hellocute",
                         ),
                       ),
                     ),
@@ -203,7 +197,7 @@ class _TableDeMultiplicationState extends State<TableDeMultiplication> {
               ],
             ),
 
-            // Tête du robot avec émotion
+            // Partie haute : Tête du robot avec émotion
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -236,18 +230,19 @@ class _TableDeMultiplicationState extends State<TableDeMultiplication> {
               ],
             ),
 
-            // Contenu principal
+            // Contenu principal (bas de page) : Table de multiplication modernisée
             Column(
               children: [
                 const SizedBox(height: 150),
                 Expanded(
                   child: Container(
                     width: double.infinity,
+                    margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     decoration: BoxDecoration(
                       color: const Color(0xFFFFC232),
                       borderRadius: BorderRadius.circular(15),
-                      gradient: LinearGradient(
-                        colors: [Colors.orange.shade300, Colors.orange.shade500],
+                      gradient: const LinearGradient(
+                        colors: [Color(0xFF74A8F5), Color(0xFF74F1F5)],
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                       ),
@@ -274,76 +269,13 @@ class _TableDeMultiplicationState extends State<TableDeMultiplication> {
                               ],
                             ),
                           ),
-
-                        // Table de multiplication avec champs de saisie
+                        // Nouvelle table de multiplication designée et responsive
                         Expanded(
-                          child: SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            child: SingleChildScrollView(
-                              scrollDirection: Axis.vertical,
-                              child: DataTable(
-                                columnSpacing: 10,
-                                dataRowHeight: 50,
-                                headingRowHeight: 50,
-                                columns: [
-                                  const DataColumn(label: Text('×', style: TextStyle(fontSize: 20))),
-                                  for (int i = 1; i <= 5; i++)
-                                    DataColumn(label: Text('$i', style: const TextStyle(fontSize: 20))),
-                                ],
-                                rows: [
-                                  for (int row = 1; row <= 9; row++)
-                                    DataRow(
-                                      cells: [
-                                        DataCell(Text('$row', style: const TextStyle(fontSize: 20))),
-                                        for (int col = 1; col <= 5; col++)
-                                          DataCell(
-                                            SizedBox(
-                                              width: 40,
-                                              height: 40,
-                                              child: Focus(
-                                                onFocusChange: (hasFocus) {
-                                                  if (!hasFocus && _controllers[row-1][col-1].text.isNotEmpty) {
-                                                    _checkAnswer(row-1, col-1, _controllers[row-1][col-1].text);
-                                                  }
-                                                },
-                                                child: TextField(
-                                                  controller: _controllers[row-1][col-1],
-                                                  keyboardType: TextInputType.numberWithOptions(decimal: false),
-                                                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                                                  textAlign: TextAlign.center,
-                                                  enabled: !_isLocked[row-1][col-1],
-                                                  decoration: InputDecoration(
-                                                    border: OutlineInputBorder(),
-                                                    contentPadding: EdgeInsets.zero,
-                                                    filled: _controllers[row-1][col-1].text.isNotEmpty,
-                                                    fillColor: _controllers[row-1][col-1].text.isNotEmpty
-                                                        ? (_isCorrect[row-1][col-1]
-                                                        ? Colors.green.withOpacity(0.3)
-                                                        : Colors.red.withOpacity(0.3))
-                                                        : Colors.white,
-                                                  ),
-                                                  style: TextStyle(
-                                                    fontSize: 18,
-                                                    color: _controllers[row-1][col-1].text.isNotEmpty
-                                                        ? (_isCorrect[row-1][col-1]
-                                                        ? Colors.green
-                                                        : Colors.red)
-                                                        : Colors.black,
-                                                    decoration: _controllers[row-1][col-1].text.isNotEmpty && !_isCorrect[row-1][col-1]
-                                                        ? TextDecoration.lineThrough
-                                                        : null,
-                                                    decorationColor: Colors.red,
-                                                    decorationThickness: 2,
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                      ],
-                                    ),
-                                ],
-                              ),
-                            ),
+                          child: MultiplicationTableGrid(
+                            controllers: _controllers,
+                            isCorrect: _isCorrect,
+                            isLocked: _isLocked,
+                            onCheckAnswer: _checkAnswer,
                           ),
                         ),
                       ],
@@ -386,3 +318,215 @@ class TimerWidget extends StatelessWidget {
     );
   }
 }
+class MultiplicationTableGrid extends StatelessWidget {
+  final List<List<TextEditingController>> controllers;
+  final List<List<bool>> isCorrect;
+  final List<List<bool>> isLocked;
+  final Function(int, int, String) onCheckAnswer;
+
+  const MultiplicationTableGrid({
+    Key? key,
+    required this.controllers,
+    required this.isCorrect,
+    required this.isLocked,
+    required this.onCheckAnswer,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(builder: (context, constraints) {
+      // On souhaite 6 cellules par ligne, chacune avec un padding de 4 px sur chaque côté.
+      // Ce qui fait 8 pixels de padding par cellule.
+      double totalPadding = 6 * 8;
+      double cellWidth = (constraints.maxWidth - totalPadding) / 6;
+      double cellHeight = cellWidth * 0.8;
+
+      return SizedBox(
+        width: constraints.maxWidth,
+        child: Column(
+          children: [
+            // Ligne d'en-tête
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: Container(
+                    width: cellWidth,
+                    height: cellHeight,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      gradient: const LinearGradient(
+                        colors: [Color(0xFF74A8F5), Color(0xFF74F1F5)],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(12),
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black26,
+                          blurRadius: 4,
+                          offset: Offset(2, 2),
+                        )
+                      ],
+                    ),
+                    child: const Text(
+                      '×',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+                for (int i = 1; i <= 5; i++)
+                  Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Container(
+                      width: cellWidth,
+                      height: cellHeight,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        gradient: const LinearGradient(
+                          colors: [Color(0xFF74A8F5), Color(0xFF74F1F5)],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                        borderRadius: i == 5
+                            ? const BorderRadius.only(topRight: Radius.circular(12))
+                            : BorderRadius.zero,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black26,
+                            blurRadius: 4,
+                            offset: Offset(2, 2),
+                          )
+                        ],
+                      ),
+                      child: Text(
+                        '$i',
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+            const SizedBox(height: 8),
+            // Les lignes de données
+            Expanded(
+              child: ListView.builder(
+                itemCount: controllers.length, // 9 lignes
+                itemBuilder: (context, row) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 4.0),
+                    child: Row(
+                      children: [
+                        // Colonne pour le numéro de la ligne (multiplicateur)
+                        Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: Container(
+                            width: cellWidth,
+                            height: cellHeight,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: const BorderRadius.only(
+                                bottomLeft: Radius.circular(8),
+                              ),
+                              border: Border.all(color: Colors.grey.shade300),
+                            ),
+                            child: Text(
+                              '${row + 1}',
+                              style: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                        // Cellules pour les réponses
+                        for (int col = 0; col < 5; col++)
+                          Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Container(
+                              width: cellWidth,
+                              height: cellHeight,
+                              decoration: BoxDecoration(
+                                color: controllers[row][col].text.isNotEmpty
+                  ? (isCorrect[row][col]
+                  ? Colors.green.withOpacity(0.3)
+                      : Colors.red.withOpacity(0.3))
+                      : Colors.white,
+                                borderRadius: BorderRadius.circular(8),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.grey.shade300,
+                                    blurRadius: 4,
+                                    offset: const Offset(2, 2),
+                                  )
+                                ],
+                              ),
+                              child: Center(
+                                child: Focus(
+                                  onFocusChange: (hasFocus) {
+                                    if (!hasFocus &&
+                                        controllers[row][col].text.isNotEmpty) {
+                                      onCheckAnswer(row, col, controllers[row][col].text);
+                                    }
+                                  },
+                                  child: TextField(
+                                    controller: controllers[row][col],
+                                    keyboardType: TextInputType.number,
+                                    textAlign: TextAlign.center,
+                                    textAlignVertical: TextAlignVertical.center,
+                                    enabled: !isLocked[row][col],
+                                    // On limite à 2 chiffres pour éviter un débordement
+                                    inputFormatters: [
+                                      FilteringTextInputFormatter.digitsOnly,
+                                      LengthLimitingTextInputFormatter(2)
+                                    ],
+                                    decoration: InputDecoration(
+                                      border: InputBorder.none,
+                                      isDense: true,
+                                      contentPadding: EdgeInsets.zero,
+                                      filled: true,
+                                      fillColor:Colors.transparent,
+                                    ),
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: controllers[row][col].text.isNotEmpty
+                                          ? (isCorrect[row][col]
+                                          ? Colors.green
+                                          : Colors.red)
+                                          : Colors.black,
+                                      decoration: controllers[row][col].text.isNotEmpty &&
+                                          !isCorrect[row][col]
+                                          ? TextDecoration.lineThrough
+                                          : TextDecoration.none,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      );
+    });
+  }
+}
+
+

@@ -107,24 +107,14 @@
     "choices": [20, 32, 16, 8],
     "explication": "20 n'est pas un multiple de 8, contrairement à 8, 16 et 32."
   },
-  {
-    "question": "1, 2, 4, 7",
-    "correctAnswer": 7,
-    "choices": [7, 4, 2, 1],
-    "explication": "1, 2 et 4 sont des puissances de 2, 7 ne l'est pas."
-  },
+
   {
     "question": "3, 6, 9, 10",
     "correctAnswer": 10,
     "choices": [10, 9, 6, 3],
     "explication": "10 n'est pas un multiple de 3."
   },
-  {
-    "question": "2, 4, 8, 10",
-    "correctAnswer": 10,
-    "choices": [10, 8, 4, 2],
-    "explication": "2, 4 et 8 sont des puissances de 2, 10 ne l'est pas."
-  },
+
   {
     "question": "5, 15, 25, 20",
     "correctAnswer": 20,
@@ -288,12 +278,7 @@
     "choices": [20, 32, 16, 8],
     "explication": "20 n'est pas un multiple de 8."
   },
-  {
-    "question": "1, 2, 4, 7",
-    "correctAnswer": 7,
-    "choices": [7, 4, 2, 1],
-    "explication": "1, 2 et 4 sont des puissances de 2, 7 ne l'est pas."
-  },
+
   {
     "question": "3, 6, 9, 10",
     "correctAnswer": 10,

@@ -65,10 +65,13 @@ class ButtonMain extends StatelessWidget {
                   ],
                   Text(
                     text,
-                    style: GoogleFonts.comicNeue(
-                      fontSize: 22,
+                    style: TextStyle(
+                      fontSize: 25,
                       fontWeight: FontWeight.bold,
+                      letterSpacing: 1.8,
                       color: Colors.white,
+
+                      fontFamily: 'Coconut',
                     ),
                   ),
                 ],

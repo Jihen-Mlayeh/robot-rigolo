@@ -65,6 +65,9 @@ class _GameListPageFacileState extends State<GameListPageFacile> {
                             'Mini-jeux',
                             style: Theme.of(context).textTheme.titleLarge?.copyWith(
                               color: Colors.white,
+                              fontFamily: 'coconut',
+                              letterSpacing: 1.5,
+                              fontSize: 30,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -98,12 +101,18 @@ class _GameListPageFacileState extends State<GameListPageFacile> {
 }
 
 class GameContainer extends StatelessWidget {
+
+  final Color cardColor2 = Color(0xFFFF8860);
+  final Color cardColor3 = Color(0xFFFFA6A6);
+  final Color cardColor4 = Color(0xFFFFE066);
+  final Color cardColor5 = Color(0xFFDCC6FF);
+
   final Color color;
   final Color cardColor;
   final bool timerEnabled;
   final ValueChanged<bool> onTimerChanged;
 
-  const GameContainer({
+  GameContainer({
     Key? key,
     required this.color,
     required this.cardColor,
@@ -131,8 +140,8 @@ class GameContainer extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               const Text(
-                "Chronomètre",
-                style: TextStyle(fontWeight: FontWeight.bold),
+                "Chronometre",
+                style: TextStyle(fontFamily: "coconut", fontSize: 20),
               ),
               Switch.adaptive(
                 value: timerEnabled,
@@ -148,18 +157,19 @@ class GameContainer extends StatelessWidget {
               physics: const BouncingScrollPhysics(),
               children: [
                 _StatCard(
+                  color: cardColor,
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => ExerciceTemplate(
+                          title: "Des petits calculs !",
                           timerEnabled: timerEnabled,
-                          exerciceFile: 'assets/questions/simple_calcul.json',
+                          exerciceFile: 'assets/questions/simple_calcul_facile.json',
                         ),
                       ),
                     );
                   },
-                  color: cardColor,
                   icon: Icons.calculate,
                   title: 'Calculs simples',
                   subtitle: '2 + 2 = ?',
@@ -171,14 +181,16 @@ class GameContainer extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => BullesMagiquesPage()
+                          builder: (context) => BullesMagiquesPage(
+                            file: "assets/questions/simple_calcul_facile.json",
+                          )
                       ),
                     );
                   },
-                  color: cardColor,
+                  color: cardColor2,
                   icon: Icons.calculate,
                   title: 'Bulles magiques',
-                  subtitle: 'Calculs simples dans un format\n rigolo !',
+                  subtitle: 'Calculs simples dans\n un format rigolo !',
                   iconColor: Colors.blueAccent,
                 ),
                 const SizedBox(height: 16),
@@ -188,13 +200,14 @@ class GameContainer extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) => ExerciceTemplate(
+                          title: "Complete la suite !",
                           timerEnabled: timerEnabled,
                           exerciceFile: 'assets/questions/complete_suite_facile.json',
                         ),
                       ),
                     );
                   },
-                  color: cardColor,
+                  color: cardColor3,
                   icon: Icons.list_alt,
                   title: "Complete la suite !",
                   subtitle: '1, 2, 3, ?, 5',
@@ -207,13 +220,14 @@ class GameContainer extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) => ExerciceTemplate(
+                          title: "Trouve l'intrus !",
                           timerEnabled: timerEnabled,
                           exerciceFile: 'assets/questions/trouve_intrus_facile.json',
                         ),
                       ),
                     );
                   },
-                  color: cardColor,
+                  color: cardColor4,
                   icon: Icons.search,
                   title: "Trouve l'intrus !",
                   subtitle: '1, 2, 3, 4, 5, 6, 19, 8, 9',
@@ -231,9 +245,9 @@ class GameContainer extends StatelessWidget {
                       ),
                     );
                   },
-                  color: cardColor,
+                  color: cardColor5,
                   icon: Icons.crop_square_sharp,
-                  title: 'Table De Multiplication',
+                  title: 'Table De\n Multiplication',
                   subtitle: '1*4=?',
                   iconColor: Colors.deepPurpleAccent,
                 ),
@@ -279,7 +293,7 @@ class _StatCard extends StatelessWidget {
           children: [
             Container(
               width: 50,
-              height: 75,
+              height: 100,
               decoration: BoxDecoration(
                 color: iconColor.withOpacity(0.1),
                 shape: BoxShape.circle,
@@ -287,7 +301,7 @@ class _StatCard extends StatelessWidget {
               child: Icon(
                 icon,
                 color: iconColor,
-                size: 28,
+                size: 45,
               ),
             ),
             const SizedBox(width: 16),
@@ -298,13 +312,17 @@ class _StatCard extends StatelessWidget {
                   title,
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.bold,
+                    fontFamily: 'coconut',
+                    fontSize: 26,
+                    letterSpacing: 1.5
                   ),
                 ),
                 const SizedBox(height: 4),
                 Text(
                   subtitle,
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    fontSize: 14,
+                    fontSize: 13,
+                    fontFamily: 'Hellocute',
                   ),
                 ),
               ],

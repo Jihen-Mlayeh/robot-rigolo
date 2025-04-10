@@ -2,19 +2,25 @@ import 'package:calculs/AgeSelectionPage.dart';
 import 'package:calculs/ButtonMain.dart';
 import 'package:calculs/GameListPageFacile.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]);
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Robot rigolo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
 
@@ -89,13 +95,17 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         child:  Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Padding(padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height * 0.20),
+            child:
             Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
 
                 Text(
                   "Bienvenue !",
-                  style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.blue.shade800),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold, color: Colors.black54, fontFamily: "Hellocute", letterSpacing: 2,height: 2)
                 ),
 
 
@@ -129,6 +139,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
               ],
             ),
+            )
+
           ],
         ),
       )
